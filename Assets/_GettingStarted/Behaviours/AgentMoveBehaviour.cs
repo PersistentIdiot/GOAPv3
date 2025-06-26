@@ -59,6 +59,11 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
                 this.transform.position,
                 new Vector3(this.currentTarget.Position.x, this.transform.position.y, this.currentTarget.Position.z),
                 Time.deltaTime * MoveSpeed);
+
+            Vector3 facingDirection = currentTarget.Position - transform.position;
+            facingDirection.y = 0;
+            
+            transform.forward = facingDirection;
         }
 
         private void OnDrawGizmos() {

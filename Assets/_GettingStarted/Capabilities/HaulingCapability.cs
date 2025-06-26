@@ -19,22 +19,26 @@ namespace CrashKonijn.Docs.GettingStarted.Capabilities {
                 .SetKey<IsHolding<Log>>()
                 ;
 
+            
+            // Logs
             builder.AddGoal<PickupItemGoal<Log>>()
                 .AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 0)
                 .SetBaseCost(2)
                 ;
-
-            builder.AddGoal<HaulLogsGoal>()
-                .AddCondition<IsHolding<Log>>(Comparison.GreaterThanOrEqual, 1)
-                .SetBaseCost(1);
-
+            
             builder.AddAction<PickupLogAction>()
                 .AddEffect<IsHolding<Log>>(EffectType.Increase)
                 .SetTarget<ClosestLog>();
 
+            builder.AddGoal<HaulItemGoal<Log>>()
+                .AddCondition<IsHolding<Log>>(Comparison.GreaterThanOrEqual, 1)
+                .SetBaseCost(1);
+
             builder.AddAction<HaulLogAction>()
                 .AddEffect<IsHolding<Log>>(EffectType.Decrease)
                 .SetTarget<ClosestChest>();
+            
+            
             
             return builder.Build();
             

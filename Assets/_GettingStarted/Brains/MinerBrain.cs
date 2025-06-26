@@ -1,9 +1,9 @@
 ﻿using CrashKonijn.Agent.Core;
 
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {
-    public class HaulerBrain: AgentBrain {
+    public class MinerBrain: AgentBrain {
         protected override void Start() {
-            this.provider.RequestGoal<HaulItemGoal<Log>, PickupItemGoal<Log>>();
+            this.provider.RequestGoal<HarvestGoal<StoneMine>>();
         }
         
         protected override void OnActionEnd(IAction action) {
@@ -13,7 +13,7 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
             }
 
 
-            this.provider.RequestGoal<HaulItemGoal<Log>, PickupItemGoal<Log>>();
+            this.provider.RequestGoal<HarvestGoal<StoneMine>>();
         }
     }
 }
