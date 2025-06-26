@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0857b2a53377458ebec6c4b1179e3c5a, type: 3}
+  m_Name: GettingStartedGenerator
+  m_EditorClassIdentifier: 
+  nameSpace: CrashKonijn.Docs.GettingStarted
+  scripts:
+    goals:
+    - <Name>k__BackingField: EatGoal
+      fullName: CrashKonijn.Docs.GettingStarted.EatGoal, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Goals/EatGoal.cs
+      <Id>k__BackingField: Eat-b8732d1a-781f-411c-bc62-2a1ec2e429a6
+    - <Name>k__BackingField: IdleGoal
+      fullName: CrashKonijn.Docs.GettingStarted.IdleGoal, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Goals/IdleGoal.cs
+      <Id>k__BackingField: Idle-7edfd313-5ee0-46d9-ac49-c27dc54cd048
+    - <Name>k__BackingField: PickupPearGoal
+      fullName: CrashKonijn.Docs.GettingStarted.PickupPearGoal, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Goals/PickupPearGoal.cs
+      <Id>k__BackingField: PickupPear-4b2c1cd9-1a39-49aa-b754-e72d5342cb46
+    actions:
+    - <Name>k__BackingField: EatAction
+      fullName: CrashKonijn.Docs.GettingStarted.Actions.EatAction, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Actions/EatAction.cs
+      <Id>k__BackingField: Eat-b235695c-727b-41a5-aa66-4757ce65719d
+    - <Name>k__BackingField: IdleAction
+      fullName: CrashKonijn.Docs.GettingStarted.IdleAction, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Actions/IdleAction.cs
+      <Id>k__BackingField: Idle-017c8495-88ec-48eb-b5b8-838d380057d6
+    - <Name>k__BackingField: PickupPearAction
+      fullName: CrashKonijn.Docs.GettingStarted.Actions.PickupPearAction, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Actions/PickupPearAction.cs
+      <Id>k__BackingField: PickupPear-06ef21a4-059b-4314-800a-e7c2622637fb
+    worldSensors: []
+    worldKeys:
+    - <Name>k__BackingField: Hunger
+      fullName: CrashKonijn.Docs.GettingStarted.Hunger, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/WorldKeys/Hunger.cs
+      <Id>k__BackingField: Hunger-64253fe2-5d4e-42ba-88ff-64bf976ba417
+    - <Name>k__BackingField: IsIdle
+      fullName: CrashKonijn.Docs.GettingStarted.IsIdle, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/WorldKeys/IsIdle.cs
+      <Id>k__BackingField: IsIdle-33c7935c-ed25-4e28-a035-4d7b010c440d
+    - <Name>k__BackingField: PearCount
+      fullName: CrashKonijn.Docs.GettingStarted.PearCount, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/WorldKeys/PearCount.cs
+      <Id>k__BackingField: PearCount-298861a7-b3e8-4ca7-ac81-12ba8a654091
+    targetSensors:
+    - <Name>k__BackingField: IdleTargetSensor
+      fullName: CrashKonijn.Docs.GettingStarted.Sensors.IdleTargetSensor, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Sensors/IdleTargetSensor.cs
+      <Id>k__BackingField: IdleTargetSensor-c34e9575-d171-4044-9b83-a91a1c32e214
+    targetKeys:
+    - <Name>k__BackingField: ClosestPear
+      fullName: CrashKonijn.Docs.GettingStarted.ClosestPear, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/TargetKeys/ClosestPear.cs
+      <Id>k__BackingField: ClosestPear-dda56537-d2eb-495c-895e-1aa18f6cf154
+    - <Name>k__BackingField: IdleTarget
+      fullName: CrashKonijn.Docs.GettingStarted.IdleTarget, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/TargetKeys/IdleTarget.cs
+      <Id>k__BackingField: IdleTarget-e220ee26-e9fe-4768-b105-0da46ae0e44f
+    multiSensors:
+    - <Name>k__BackingField: PearSensor
+      fullName: CrashKonijn.Docs.GettingStarted.Sensors.PearSensor, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      <Path>k__BackingField: Assets/_GettingStarted/Sensors/PearSensor.cs
+      <Id>k__BackingField: PearSensor-d68c875d-29c0-43f3-9d79-054d4cc6505d
