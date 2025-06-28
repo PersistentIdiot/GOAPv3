@@ -6,7 +6,7 @@ using CrashKonijn.Goap.Runtime;
 using UnityEngine;
 
 namespace _GettingStarted.Actions {
-    public class PickupLogAction: GoapActionBase<PickupLogAction.Data> {
+    public class PickupHoldableAction: GoapActionBase<PickupHoldableAction.Data> {
         public class Data : IActionData {
             public ITarget Target { get; set; }
 
@@ -29,7 +29,6 @@ namespace _GettingStarted.Actions {
                 data.AgentData.Inventory.Add(holdable);
             }
 
-            data.AgentData.LogCount++;
             //GameObject.Destroy(transformTarget.Transform.gameObject);
             transformTarget.Transform.gameObject.SetActive(false);
         }

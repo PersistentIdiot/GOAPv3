@@ -1,7 +1,7 @@
 ﻿using CrashKonijn.Goap.Runtime;
 
 namespace CrashKonijn.Docs.GettingStarted {
-    public class HaulLogsGoal: GoalBase {
+    public class ClosestHoldable<THoldable>: TargetKeyBase {
         
     }
 }

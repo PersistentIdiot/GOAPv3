@@ -12,141 +12,69 @@ namespace CrashKonijn.Docs.GettingStarted.Capabilities {
     public class LogHaulingCapability: CapabilityFactoryBase {
         public override ICapabilityConfig Create() {
             var builder = new CapabilityBuilder(nameof(LogHaulingCapability));
-            
-            builder.AddMultiSensor<LogSensor>();
             builder.AddMultiSensor<ChestSensor>();
-            builder.AddWorldSensor<IsHoldingSensor<Log>>()
-                .SetKey<IsHolding<Log>>()
-                ;
-
             
-            // Logs
+            builder = CreateLogHaulingCapability(builder);
+            builder = CreateStoneHaulingCapability(builder);
+            return builder.Build();
+        }
+
+        private CapabilityBuilder CreateLogHaulingCapability(CapabilityBuilder builder) {
+            // Sensors
+            builder.AddMultiSensor<LogSensor>();
+            builder.AddWorldSensor<IsHoldingSensor<Log>>()
+                .SetKey<IsHolding<Log>>();
+
+            // Goals
             builder.AddGoal<PickupItemGoal<Log>>()
                 .AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 0)
-                .SetBaseCost(2)
-                ;
+                .SetBaseCost(2);
             
-            builder.AddAction<PickupLogAction>()
-                .AddEffect<IsHolding<Log>>(EffectType.Increase)
-                .SetTarget<ClosestLog>();
-
             builder.AddGoal<HaulItemGoal<Log>>()
                 .AddCondition<IsHolding<Log>>(Comparison.GreaterThanOrEqual, 1)
                 .SetBaseCost(1);
-
-            builder.AddAction<HaulLogAction>()
-                .AddEffect<IsHolding<Log>>(EffectType.Decrease)
-                .SetTarget<ClosestChest>();
             
             
-            
-            return builder.Build();
-            
-            /*
-            // Working backup
-            builder.AddMultiSensor<LogSensor>();
-            builder.AddMultiSensor<ChestSensor>();
-            builder.AddWorldSensor<IsHoldingSensor<Log>>()
-                .SetKey<IsHolding<Log>>()
-                ;
-
-            builder.AddGoal<PickupLogGoal>()
-                .AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 0)
-                .SetBaseCost(2)
-                ;
-
-            builder.AddGoal<HaulLogsGoal>()
-                .AddCondition<IsHolding<Log>>(Comparison.GreaterThanOrEqual, 1)
-                .SetBaseCost(1);
-
-            builder.AddAction<PickupLogAction>()
+            // Actions
+            builder.AddAction<PickupHoldableAction>()
                 .AddEffect<IsHolding<Log>>(EffectType.Increase)
-                .SetTarget<ClosestLog>();
+                .SetTarget<ClosestHoldable<Log>>();
 
-            builder.AddAction<HaulLogAction>()
+            builder.AddAction<HaulItemAction<Log>>()
                 .AddEffect<IsHolding<Log>>(EffectType.Decrease)
                 .SetTarget<ClosestChest>();
-            */
-            
-            /*
-            // Working but old
-            builder.AddMultiSensor<LogSensor>();
-            builder.AddMultiSensor<ChestSensor>();
 
-            builder.AddGoal<PickupLogGoal>()
-                .AddCondition<LogCount>(Comparison.SmallerThanOrEqual, 0)
-                .SetBaseCost(2)
-                ;
+            return builder;
+        }
 
-            builder.AddGoal<HaulLogsGoal>()
-                .AddCondition<LogCount>(Comparison.GreaterThanOrEqual, 1)
-                .SetBaseCost(1);
-
-            builder.AddAction<PickupLogAction>()
-                .AddEffect<LogCount>(EffectType.Increase)
-                .SetTarget<ClosestLog>();
-
-            builder.AddAction<HaulLogAction>()
-                .AddEffect<LogCount>(EffectType.Decrease)
-                .SetTarget<ClosestChest>();
-            */
-
-            
-            /*
-            // Not working, won't return Logs
-            builder.AddMultiSensor<ItemSensor<Log>>();
-            builder.AddMultiSensor<ItemSensor<Chest>>();
-
-            builder.AddGoal<HaulLogsGoal>()
-                .AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 0)
-                .SetBaseCost(0);
-
-            
-            builder.AddAction<PickupItemAction<Log>>()
-                .AddEffect<IsHolding<Log>>(EffectType.Increase)
-                //.AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 0)
-                .SetTarget<ClosestTarget<Log>>();
+        
+        private CapabilityBuilder CreateStoneHaulingCapability(CapabilityBuilder builder) {
+            // Sensors
+            builder.AddMultiSensor<StoneSensor>();
+            builder.AddWorldSensor<IsHoldingSensor<Stone>>()
+                .SetKey<IsHolding<Stone>>();
             
             
-            builder.AddAction<HaulLogAction>()
-                .AddEffect<IsHolding<Log>>(EffectType.Decrease)
-                .AddCondition<IsHolding<Log>>(Comparison.GreaterThanOrEqual, 1)
-                .SetTarget<ClosestTarget<Chest>>();
-            
-            */
-            /*
-            builder.AddMultiSensor<ItemSensor<Log>>();
-            builder.AddMultiSensor<ItemSensor<Chest>>();
-            builder.AddWorldSensor<IsHoldingSensor<Log>>()
-                .SetKey<IsHolding<Log>>()
-                ;
-
-            builder.AddGoal<HaulLogsGoal>()
-                .AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 0)
-                .SetBaseCost(0)
-                ;
-
-            
-            builder.AddGoal<PickupItemGoal<Log>>()
-                .AddCondition<IsHolding<Log>>(Comparison.GreaterThan, 0)
+            // Goals
+            builder.AddGoal<PickupItemGoal<Stone>>()
+                .AddCondition<IsHolding<Stone>>(Comparison.SmallerThanOrEqual, 0)
                 .SetBaseCost(2);
             
+            builder.AddGoal<HaulItemGoal<Stone>>()
+                .AddCondition<IsHolding<Stone>>(Comparison.GreaterThanOrEqual, 1)
+                .SetBaseCost(1);
+            
+            
+            // Actions
+            builder.AddAction<PickupHoldableAction>()
+                .AddEffect<IsHolding<Stone>>(EffectType.Increase)
+                .SetTarget<ClosestHoldable<Stone>>();
 
-            
-            builder.AddAction<PickupItemAction<Log>>()
-                .AddEffect<IsHolding<Log>>(EffectType.Increase)
-                .AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 0)
-                .SetTarget<ClosestTarget<Log>>();
-            
-            
-            builder.AddAction<HaulLogAction>()
-                .AddEffect<IsHolding<Log>>(EffectType.Decrease)
-                .AddCondition<IsHolding<Log>>(Comparison.GreaterThanOrEqual, 1)
-                .SetTarget<ClosestTarget<Chest>>()
-                .SetMoveMode(ActionMoveMode.PerformWhileMoving)
-                ;
-            
-            */
+            builder.AddAction<HaulItemAction<Stone>>()
+                .AddEffect<IsHolding<Stone>>(EffectType.Decrease)
+                .SetTarget<ClosestChest>();
+
+            return builder;
         }
     }
 }

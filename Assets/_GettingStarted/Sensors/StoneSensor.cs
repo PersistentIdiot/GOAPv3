@@ -4,35 +4,33 @@ using CrashKonijn.Goap.Runtime;
 using UnityEngine;
 
 namespace CrashKonijn.Docs.GettingStarted.Sensors {
-    public class LogSensor: MultiSensorBase {
-        public Log[] logs;
+    public class StoneSensor: MultiSensorBase {
+        private Stone[] stones;
 
-        public LogSensor() {
-            AddLocalTargetSensor<ClosestHoldable<Log>>(
+        public StoneSensor() {
+            AddLocalTargetSensor<ClosestHoldable<Stone>>(
                 (agent, references, target) => {
-                    var closestLog = Closest(logs, agent.Transform.position);
+                    var closestStone = Closest(stones, agent.Transform.position);
 
-                    if (closestLog == null) {
+                    if (closestStone == null) {
                         return null;
                     }
 
                     if (target is TransformTarget transformTarget) {
-                        return transformTarget.SetTransform(closestLog.transform);
+                        return transformTarget.SetTransform(closestStone.transform);
                     }
 
-                    return new TransformTarget(closestLog.transform);
+                    return new TransformTarget(closestStone.transform);
                 });
         }
-
         public override void Created() {
+            
         }
 
         public override void Update() {
-            logs = Object.FindObjectsOfType<Log>();
+            stones = Object.FindObjectsOfType<Stone>();
         }
-        
-        
-        
+
         // Returns the closest item in a list
         private T Closest<T>(IEnumerable<T> list, Vector3 position) where T : MonoBehaviour {
             T closest = null;
