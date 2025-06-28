@@ -1,11 +1,11 @@
 ﻿using CrashKonijn.Agent.Core;
 
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {
-    public class HaulerBrain: AgentBrain {
+    public class HaulerBrain : AgentBrain {
         protected override void Start() {
-            this.provider.RequestGoal<HaulItemGoal<Log>, PickupItemGoal<Log>>();
+            this.provider.RequestGoal<HaulItemGoal<Stone>, PickupItemGoal<Stone>, HaulItemGoal<Log>, PickupItemGoal<Log>>();
         }
-        
+
         protected override void OnActionEnd(IAction action) {
             if (this.AgentData.hunger > 50) {
                 this.provider.RequestGoal<EatGoal>();
@@ -13,7 +13,7 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
             }
 
 
-            this.provider.RequestGoal<HaulItemGoal<Log>, PickupItemGoal<Log>>();
+            this.provider.RequestGoal<HaulItemGoal<Stone>, PickupItemGoal<Stone>, HaulItemGoal<Log>, PickupItemGoal<Log>>();
         }
     }
 }
