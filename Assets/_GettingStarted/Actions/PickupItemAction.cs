@@ -29,7 +29,6 @@ namespace _GettingStarted.Actions {
             else {
                 GameObject.Destroy(transformTarget.Transform.gameObject);
             }
-            
         }
 
         // The action class itself must be stateless!

@@ -1,6 +1,7 @@
 ﻿using CrashKonijn.Agent.Core;
 using CrashKonijn.Agent.Runtime;
 using CrashKonijn.Docs.GettingStarted.Behaviours;
+using CrashKonijn.Goap.Demos.Complex.Behaviours;
 using CrashKonijn.Goap.Demos.Complex.Interfaces;
 using CrashKonijn.Goap.Runtime;
 using UnityEngine;
@@ -25,7 +26,7 @@ namespace _GettingStarted.Actions {
                 return;
             }
 
-            if (transformTarget.Transform.TryGetComponent(out IHoldable holdable)) {
+            if (transformTarget.Transform.TryGetComponent(out ItemBase holdable)) {
                 data.AgentData.Inventory.Add(holdable);
             }
 

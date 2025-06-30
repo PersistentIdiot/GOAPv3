@@ -35,7 +35,7 @@ namespace _GettingStarted.Actions {
 
         public class Data : IActionData {
             public ITarget Target { get; set; }
-            public IHoldable Item { get; set; }
+            public ItemBase Item { get; set; }
             // When using the GetComponent attribute, the system will automatically inject the reference
             [GetComponent]
             public AgentData AgentData { get; set; }

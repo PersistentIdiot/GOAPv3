@@ -1,10 +1,11 @@
-﻿using CrashKonijn.Goap.Demos.Complex.Interfaces;
+﻿using System.Collections.Generic;
+using CrashKonijn.Goap.Demos.Complex.Interfaces;
 using UnityEngine;
 
 namespace CrashKonijn.Goap.Demos.Complex.Behaviours
 {
-    public abstract class ItemBase : MonoBehaviour, IHoldable
-    {
+    public abstract class ItemBase : MonoBehaviour, IHoldable {
+        public List<ItemBase> Reagents = new();
         private ItemCollection collection;
         
         [field: SerializeField]
