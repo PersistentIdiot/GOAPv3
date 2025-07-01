@@ -1,4 +1,5 @@
 ﻿using CrashKonijn.Agent.Core;
+using UnityEngine;
 
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {
     public class TreeCutterBrain: AgentBrain {
@@ -10,6 +11,11 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
             if (this.AgentData.hunger > 50) {
                 this.provider.RequestGoal<EatGoal>();
                 return;
+            }
+
+            if (!this.AgentData.Inventory.Has<Axe>()) {
+                Debug.Log($"Requesting axe pickup");
+                this.provider.RequestGoal<PickupItemGoal<Axe>>();
             }
 
 

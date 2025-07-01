@@ -3,6 +3,7 @@ using CrashKonijn.Goap.Core;
 using CrashKonijn.Goap.Demos.Complex.Behaviours;
 using CrashKonijn.Goap.Editor;
 using UnityEngine;
+using Random = System.Random;
 
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {
     public class AgentData : MonoBehaviour {
@@ -17,6 +18,10 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
         public float hunger = 0f;
         public int TreeCount = 0;
         public int LogCount;
+
+        private void Start() {
+            HungerRate = UnityEngine.Random.Range(3f, 7f);
+        }
 
         private void Update() {
             // For simplicity, we will increase the hunger over time in this class.
