@@ -65,12 +65,12 @@ namespace CrashKonijn.Docs.GettingStarted.Capabilities {
         
         private CapabilityBuilder CreateActions(CapabilityBuilder builder) {
             // Actions
-            builder.AddAction<PickupHoldableAction>()
+            builder.AddAction<PickupItemAction<Log>>()
                 .AddCondition<IsHolding<Log>>(Comparison.SmallerThanOrEqual, 3)
                 .AddEffect<IsHolding<Log>>(EffectType.Increase)
                 .SetTarget<ClosestHoldable<Log>>();
             
-            builder.AddAction<PickupHoldableAction>()
+            builder.AddAction<PickupItemAction<Log>>()
                 .AddCondition<IsHolding<Stone>>(Comparison.SmallerThanOrEqual, 3)
                 .AddEffect<IsHolding<Stone>>(EffectType.Increase)
                 .SetTarget<ClosestHoldable<Stone>>();

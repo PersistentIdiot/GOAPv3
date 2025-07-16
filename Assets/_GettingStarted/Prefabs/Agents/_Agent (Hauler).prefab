@@ -368,8 +368,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Inventory: {fileID: 611998932970170432}
   Animazing: {fileID: 7222168521411821218}
-  LeftHandContainer: {fileID: 8951352326724275198}
-  RightHandContainer: {fileID: 6939473961866532520}
+  LeftHandContainer: {fileID: 5636508038470393592}
+  RightHandContainer: {fileID: 5631605391050366170}
   Animations: {fileID: 11400000, guid: 43bf4a026e5b3f14e9704735ae6563de, type: 2}
   HungerRate: 5
   pearCount: 0
@@ -524,6 +524,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 6825ade99668b5b4a9d8e18c0e0ee55a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb3d5dfd858d50849b27275f4d9be34c, type: 3}
+--- !u!4 &5631605391050366170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4484145519604600, guid: fb3d5dfd858d50849b27275f4d9be34c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5631915206296367010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5632920841361811664 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1322314552149874, guid: fb3d5dfd858d50849b27275f4d9be34c,
@@ -542,6 +548,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e810158de0072a44bb385d970936cef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5636508038470393592 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4630288055611738, guid: fb3d5dfd858d50849b27275f4d9be34c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5631915206296367010}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5636762181215908810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4882229898550376, guid: fb3d5dfd858d50849b27275f4d9be34c,

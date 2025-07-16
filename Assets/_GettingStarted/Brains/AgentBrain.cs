@@ -42,7 +42,7 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
 
         protected virtual void OnActionEnd(IAction action) {
 
-            if (this.AgentData.hunger > 50) {
+            if (this.AgentData.hunger > 50 && WorldItems.Any<Pear>()) {
                 this.provider.RequestGoal<EatGoal>();
                 return;
             }

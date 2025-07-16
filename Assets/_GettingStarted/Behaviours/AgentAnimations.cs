@@ -8,6 +8,9 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
         public AnimationData Walk;
         public AnimationData CutTree;
         public AnimationData Mine;
+        public AnimationData PickupFromGroundStart;
+        public AnimationData PickupFromGroundLoop;
+        public AnimationData PickupFromGroundEnd;
     }
 
     [Serializable]
