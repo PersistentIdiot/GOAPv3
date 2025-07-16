@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d440d2d81dcb2b47a30a4bf1747c34f, type: 3}
+  m_Name: ROOT
+  m_EditorClassIdentifier: 
+  _parentID:
+    _serializedGuid: 
+  _subcollectionIDs:
+  - _serializedGuid: 7e5add99950730499a80fe8dfde7865a
+  _collectionName: ROOT
+  _id:
+    _serializedGuid: 2535939fe029d540a3f6b9e7a9fafafa
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList: []
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  _allIds: 
+  _allCollections: []
+  _itemCollectionIdPairs: []
+  references:
+    version: 2
+    RefIds: []

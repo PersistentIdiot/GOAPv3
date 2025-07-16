@@ -37,7 +37,7 @@ namespace CrashKonijn.Docs.GettingStarted {
 
             // Lower the timer for the next frame
             data.Timer -= context.DeltaTime;
-            data.AgentData.Animazing.Play(data.AgentData.Animations.Idle, 1);
+            data.AgentData.Animazing.Play(data.AgentData.Animations.Idle.Clip, data.AgentData.Animations.Idle.Priority);
 
             // Return continue to keep the action running
             return ActionRunState.Continue;

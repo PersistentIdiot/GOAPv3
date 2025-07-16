@@ -11,7 +11,6 @@ namespace _GettingStarted.Actions {
         public override bool IsValid(IActionReceiver agent, Data data) {
             if (data.Target is not TransformTarget transformTarget) return false;
             if (!transformTarget.Transform.TryGetComponent(out IHoldable holdable) || holdable.IsClaimed) return false;
-            
             return base.IsValid(agent, data);
         }
 
@@ -19,6 +18,12 @@ namespace _GettingStarted.Actions {
             // Instead of using a timer, we can use the Wait ActionRunState.
             // The system will wait for the specified time before completing the action
             // Whilst waiting, the Perform method won't be called again
+            if (data.Target is TransformTarget transformTarget && transformTarget.Transform.TryGetComponent(out IHoldable holdable)) {
+                Debug.Log($"{agent.transform.gameObject.name} picked up {holdable.gameObject.name}");
+            }
+            else {
+                Debug.Log($"Message");
+            }
             return ActionRunState.WaitThenComplete(0.5f);
         }
 

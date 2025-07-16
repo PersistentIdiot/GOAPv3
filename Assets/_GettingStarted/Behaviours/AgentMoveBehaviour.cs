@@ -48,21 +48,21 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
 
         public void Update() {
             if (this.agent.IsPaused) {
-                this.agentData.Animazing.Stop(agentData.Animations.Walk);
+                this.agentData.Animazing.Stop(agentData.Animations.Walk.Clip);
                 return;
             }
 
             if (!this.shouldMove) {
-                this.agentData.Animazing.Stop(agentData.Animations.Walk);
+                this.agentData.Animazing.Stop(agentData.Animations.Walk.Clip);
                 return;
             }
 
             if (this.currentTarget == null) {
-                this.agentData.Animazing.Stop(agentData.Animations.Walk);
+                this.agentData.Animazing.Stop(agentData.Animations.Walk.Clip);
                 return;
             }
             
-            this.agentData.Animazing.Play(this.agentData.Animations.Walk, 5);
+            this.agentData.Animazing.Play(this.agentData.Animations.Walk.Clip, agentData.Animations.Walk.Priority);
 
             this.transform.position = Vector3.MoveTowards(
                 this.transform.position,

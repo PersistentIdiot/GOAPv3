@@ -266,7 +266,6 @@ GameObject:
   - component: {fileID: 4109810178553128701}
   - component: {fileID: 877404393796806699}
   - component: {fileID: 611998932970170432}
-  - component: {fileID: 2510283840508251393}
   m_Layer: 0
   m_Name: _Agent (Hauler)
   m_TagString: Untagged
@@ -353,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bfc00461135e2944a243b76944abab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
+  MoveSpeed: 2
   agentData: {fileID: 4109810178553128701}
 --- !u!114 &4109810178553128701
 MonoBehaviour:
@@ -371,7 +370,7 @@ MonoBehaviour:
   Animazing: {fileID: 7222168521411821218}
   LeftHandContainer: {fileID: 8951352326724275198}
   RightHandContainer: {fileID: 6939473961866532520}
-  Animations: {fileID: 2510283840508251393}
+  Animations: {fileID: 11400000, guid: 43bf4a026e5b3f14e9704735ae6563de, type: 2}
   HungerRate: 5
   pearCount: 0
   hunger: 0
@@ -401,21 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71cdeda1dcec4564abef0effa9bfc4d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2510283840508251393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4109810178553128691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36bdaf1a166e49d1ba043eacba97a9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Idle: {fileID: 3094330708855449807, guid: 9508ccae6dd32b54cb61bd81eda00380, type: 3}
-  Walk: {fileID: 3094330708855449807, guid: c133e3c197c12e04a9dd23bd0966910f, type: 3}
-  CutTree: {fileID: 3094330708855449807, guid: bc322ece381c20f449a86c75eb204295, type: 3}
 --- !u!1 &5367525595386315736
 GameObject:
   m_ObjectHideFlags: 0

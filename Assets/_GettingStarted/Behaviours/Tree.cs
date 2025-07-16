@@ -7,8 +7,10 @@ using CrashKonijn.Goap.Demos.Complex;
 using CrashKonijn.Goap.Demos.Complex.Behaviours;
 using CrashKonijn.Goap.Demos.Complex.Interfaces;
 using UnityEngine;
+using Random = System.Random;
 
 public class Tree : ItemBase, IHarvestable {
+    [SerializeField] private List<GameObject> Models = new();
     public float TreeRespawnRadius = 10f;
     public float PearDropRadius = 1f;
     public float GrowthProgress
@@ -25,6 +27,7 @@ public class Tree : ItemBase, IHarvestable {
     public Pear PearPrefab;
     
 
+    
     private float growthProgress = 1;
 
     public void Harvest() {
@@ -61,5 +64,17 @@ public class Tree : ItemBase, IHarvestable {
 
     private void UpdateGrowth(float progress) {
         transform.localScale = progress * Vector3.one;
+    }
+
+    private void OnValidate() {
+        if (Models.Count == 0) return;
+        
+        int randomIndex = UnityEngine.Random.Range(0, Models.Count);
+        
+        for (int i = 0; i < Models.Count; i++) {
+            Models[i].SetActive(false);
+        }
+
+        Models[randomIndex].SetActive(true);
     }
 }

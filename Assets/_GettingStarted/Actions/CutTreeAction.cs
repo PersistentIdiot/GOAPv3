@@ -11,8 +11,7 @@ namespace _GettingStarted.Actions {
             // Instead of using a timer, we can use the Wait ActionRunState.
             // The system will wait for the specified time before completing the action
             // Whilst waiting, the Perform method won't be called again
-            Debug.Log($"Playing CutTree animation!");
-            data.AgentData.Animazing.Play(data.AgentData.Animations.CutTree, 15);
+            data.AgentData.Animazing.Play(data.AgentData.Animations.CutTree.Clip, data.AgentData.Animations.CutTree.Priority);
             return ActionRunState.WaitThenComplete(2.5f);
         }
 

@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.bewildered.smart-library": {
+      "version": "file:com.bewildered.smart-library",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.crashkonijn.goap": {
       "version": "file:com.crashkonijn.goap",
       "depth": 0,

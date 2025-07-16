@@ -1,9 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {
-    public class AgentAnimations: MonoBehaviour {
-        public AnimationClip Idle;
-        public AnimationClip Walk;
-        public AnimationClip CutTree;
+    [CreateAssetMenu(fileName = "Default Agent Animations", menuName = "GOAP/Agent Animations")]
+    public class AgentAnimations: ScriptableObject {
+        public AnimationData Idle;
+        public AnimationData Walk;
+        public AnimationData CutTree;
+        public AnimationData Mine;
+    }
+
+    [Serializable]
+    public struct AnimationData {
+        public AnimationClip Clip;
+        public int Priority;
     }
 }
