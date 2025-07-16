@@ -29,6 +29,12 @@ namespace _GettingStarted.Actions {
             data.AnimationEnd = data.AgentData.Animations.PickupFromGroundEnd;
 
             data.State = PickupState.Kneeling;
+
+            /*
+            if (data.Target is TransformTarget transformTarget && transformTarget.Transform.TryGetComponent(out IHoldable item)) {
+                item.Claim(data.AgentData.gameObject);
+            }
+            */
         }
 
         public override IActionRunState Perform(IMonoAgent agent, Data data, IActionContext context) {

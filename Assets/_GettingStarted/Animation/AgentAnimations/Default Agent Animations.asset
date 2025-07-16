@@ -24,3 +24,12 @@ MonoBehaviour:
   Mine:
     Clip: {fileID: 3094330708855449807, guid: bc322ece381c20f449a86c75eb204295, type: 3}
     Priority: 2
+  PickupFromGroundStart:
+    Clip: {fileID: 3094330708855449807, guid: e57462711a91f8c45a7757019f7eab4a, type: 3}
+    Priority: 2
+  PickupFromGroundLoop:
+    Clip: {fileID: 3094330708855449807, guid: cf5283a6a27d3324f972e2b6dd235f4c, type: 3}
+    Priority: 2
+  PickupFromGroundEnd:
+    Clip: {fileID: 3094330708855449807, guid: eae98f581b75a8545887fdd04c7fc591, type: 3}
+    Priority: 2
