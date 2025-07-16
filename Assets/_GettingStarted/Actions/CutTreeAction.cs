@@ -11,7 +11,9 @@ namespace _GettingStarted.Actions {
             // Instead of using a timer, we can use the Wait ActionRunState.
             // The system will wait for the specified time before completing the action
             // Whilst waiting, the Perform method won't be called again
-            return ActionRunState.WaitThenComplete(0.5f);
+            Debug.Log($"Playing CutTree animation!");
+            data.AgentData.Animazing.Play(data.AgentData.Animations.CutTree, 15);
+            return ActionRunState.WaitThenComplete(2.5f);
         }
 
         public override void Complete(IMonoAgent agent, Data data) {

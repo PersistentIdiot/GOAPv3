@@ -3,6 +3,7 @@ using CrashKonijn.Agent.Core;
 using CrashKonijn.Agent.Runtime;
 using CrashKonijn.Goap.Demos.Complex.Behaviours;
 using CrashKonijn.Goap.Runtime;
+using OldOdin;
 using UnityEngine;
 
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {

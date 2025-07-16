@@ -5,6 +5,7 @@ using UnityEngine;
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {
     public class AgentMoveBehaviour : MonoBehaviour {
         public float MoveSpeed = 1;
+        [SerializeField] private AgentData agentData;
         private AgentBehaviour agent;
         private ITarget currentTarget;
         private bool shouldMove;
@@ -46,14 +47,22 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
         }
 
         public void Update() {
-            if (this.agent.IsPaused)
+            if (this.agent.IsPaused) {
+                this.agentData.Animazing.Stop(agentData.Animations.Walk);
                 return;
+            }
 
-            if (!this.shouldMove)
+            if (!this.shouldMove) {
+                this.agentData.Animazing.Stop(agentData.Animations.Walk);
                 return;
+            }
 
-            if (this.currentTarget == null)
+            if (this.currentTarget == null) {
+                this.agentData.Animazing.Stop(agentData.Animations.Walk);
                 return;
+            }
+            
+            this.agentData.Animazing.Play(this.agentData.Animations.Walk, 5);
 
             this.transform.position = Vector3.MoveTowards(
                 this.transform.position,

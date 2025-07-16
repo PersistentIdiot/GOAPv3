@@ -1,4 +1,6 @@
 using CrashKonijn.Agent.Core;
+using CrashKonijn.Agent.Runtime;
+using CrashKonijn.Docs.GettingStarted.Behaviours;
 using CrashKonijn.Goap.Runtime;
 using UnityEngine;
 
@@ -35,6 +37,7 @@ namespace CrashKonijn.Docs.GettingStarted {
 
             // Lower the timer for the next frame
             data.Timer -= context.DeltaTime;
+            data.AgentData.Animazing.Play(data.AgentData.Animations.Idle, 1);
 
             // Return continue to keep the action running
             return ActionRunState.Continue;
@@ -55,6 +58,8 @@ namespace CrashKonijn.Docs.GettingStarted {
         // The action class itself must be stateless!
         // All data should be stored in the data class
         public class Data : IActionData {
+            [GetComponent]
+            public AgentData AgentData { get; set; }
             public float Timer { get; set; }
             public ITarget Target { get; set; }
         }
