@@ -47,11 +47,13 @@ namespace CrashKonijn.Docs.GettingStarted.Capabilities {
         private CapabilityBuilder AddActions    (CapabilityBuilder builder) {
             builder.AddAction<CutTreeAction>()
                 .SetTarget<ClosestTarget<Tree>>()
-                .AddEffect<IsInWorld<Tree>>(EffectType.Decrease);
+                .AddEffect<IsInWorld<Tree>>(EffectType.Decrease)
+                .AddCondition<IsHolding<Axe>>(Comparison.GreaterThanOrEqual, 1);
 
 
             builder.AddAction<PickupItemAction<Axe>>()
                 .AddEffect<IsHolding<Axe>>(EffectType.Increase)
+                .AddCondition<IsHolding<Axe>>(Comparison.SmallerThanOrEqual, 0)
                 .SetTarget<ClosestHoldable<Axe>>();
                 
 

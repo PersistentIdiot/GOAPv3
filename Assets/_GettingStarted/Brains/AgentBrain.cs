@@ -1,6 +1,7 @@
 using System;
 using CrashKonijn.Agent.Core;
 using CrashKonijn.Agent.Runtime;
+using CrashKonijn.Goap.Demos.Complex.Behaviours;
 using CrashKonijn.Goap.Runtime;
 using UnityEngine;
 
@@ -11,12 +12,14 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
         protected GoapActionProvider provider;
         protected GoapBehaviour goap;
         protected AgentData AgentData;
+        protected ItemCollection WorldItems;
 
         private void Awake() {
             this.goap = FindObjectOfType<GoapBehaviour>();
             this.agent = this.GetComponent<AgentBehaviour>();
             this.provider = this.GetComponent<GoapActionProvider>();
             this.AgentData = this.GetComponent<AgentData>();
+            this.WorldItems = FindObjectOfType<ItemCollection>();
 
             // This only applies to the code demo
             if (this.provider.AgentTypeBehaviour == null) {
@@ -25,7 +28,7 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
         }
 
         protected virtual void Start() {
-            //this.provider.RequestGoal<IdleGoal, CutTreeGoal, HaulLogsGoal>();
+            
         }
 
         private void OnEnable() {

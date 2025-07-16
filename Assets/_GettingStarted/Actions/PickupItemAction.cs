@@ -8,7 +8,13 @@ using UnityEngine;
 
 namespace _GettingStarted.Actions {
     public class PickupItemAction<TItem> : GoapActionBase<PickupItemAction<TItem>.Data> {
-        
+        public override bool IsValid(IActionReceiver agent, Data data) {
+            if (data.Target is not TransformTarget transformTarget) return false;
+            if (!transformTarget.Transform.TryGetComponent(out IHoldable holdable) || holdable.IsClaimed) return false;
+            
+            return base.IsValid(agent, data);
+        }
+
         public override IActionRunState Perform(IMonoAgent agent, Data data, IActionContext context) {
             // Instead of using a timer, we can use the Wait ActionRunState.
             // The system will wait for the specified time before completing the action
@@ -21,10 +27,23 @@ namespace _GettingStarted.Actions {
             if (data.Target is not TransformTarget transformTarget)
                 return;
 
+            
+            
             if (transformTarget.Transform.TryGetComponent(out IHoldable item)) {
                 item.Pickup(data.AgentData.gameObject);
                 data.AgentData.Inventory.Add(item);
-                item.gameObject.SetActive(false);
+
+                if (transformTarget.Transform.TryGetComponent(out IEquipable equipable)) {
+                    if (!equipable.TryEquip(data.AgentData)) {
+                        Debug.Log($"{data.AgentData.gameObject} failed to equip {item.gameObject.name}");
+                    }
+                    else {
+                        Debug.Log($"{data.AgentData.gameObject} equipped {item.gameObject.name}");
+                    }
+                }
+                else {
+                    item.gameObject.SetActive(false);
+                }
             }
             else {
                 GameObject.Destroy(transformTarget.Transform.gameObject);

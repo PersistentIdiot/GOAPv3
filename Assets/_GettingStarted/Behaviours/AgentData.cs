@@ -2,6 +2,7 @@ using System;
 using CrashKonijn.Goap.Core;
 using CrashKonijn.Goap.Demos.Complex.Behaviours;
 using CrashKonijn.Goap.Editor;
+using CrashKonijn.Goap.Runtime;
 using UnityEngine;
 using Random = System.Random;
 
@@ -9,6 +10,8 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
     public class AgentData : MonoBehaviour {
         [Header("References")]
         public ComplexInventoryBehaviour Inventory;
+        public Transform LeftHandContainer;
+        public Transform RightHandContainer;
         
         [Header("Settings")]
         public float HungerRate = 5;
