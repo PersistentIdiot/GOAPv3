@@ -5,6 +5,7 @@ using UnityEngine;
 namespace CrashKonijn.Goap.Demos.Complex.Behaviours
 {
     public abstract class ItemBase : MonoBehaviour, IHoldable {
+        public List<ItemBase> Reagents = new();
         private ItemCollection collection;
         
         [field: SerializeField]

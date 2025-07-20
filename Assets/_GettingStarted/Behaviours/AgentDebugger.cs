@@ -1,5 +1,6 @@
 ﻿using CrashKonijn.Agent.Core;
 using CrashKonijn.Agent.Runtime;
+using CrashKonijn.Goap.Demos.Complex.Interfaces;
 using CrashKonijn.Goap.Runtime;
 using TMPro;
 using UnityEngine;
@@ -8,13 +9,15 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
     public class AgentDebugger : MonoBehaviour {
         [SerializeField] private TextMeshPro DebugText;
         private AgentBehaviour agent;
+        private AgentData data;
 
         private void Awake() {
-            this.agent = this.GetComponent<AgentBehaviour>();
+            agent = GetComponent<AgentBehaviour>();
+            data = GetComponent<AgentData>();
         }
 
         private void OnEnable() {
-            this.agent.Events.OnActionStart += action => {
+            agent.Events.OnActionStart += action => {
                 string debugText = $"{agent.ActionProviderBase.name.Split('(', ')')[1]}\n";
                 var arguments = action.GetType().GetGenericArguments();
                 
@@ -29,6 +32,15 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
                         debugText += $"Action: {action.GetType().Name}";
                         break;
                 }
+
+                /*
+                debugText += $"\nInventory: \n";
+
+                var inventoryItems = data.Inventory.GetItems;
+                foreach (IHoldable holdable in inventoryItems) {
+                    debugText += $"- {holdable.gameObject.name}\n";
+                }
+                */
 
                 DebugText.text = debugText;
             };

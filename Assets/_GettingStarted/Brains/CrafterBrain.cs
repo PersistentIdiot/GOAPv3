@@ -1,4 +1,5 @@
 ﻿using CrashKonijn.Agent.Core;
+using UnityEngine;
 
 namespace CrashKonijn.Docs.GettingStarted.Behaviours {
     public class CrafterBrain : AgentBrain {
@@ -12,8 +13,16 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
                 return;
             }
 
+            if (this.AgentData.Inventory.Has<Axe>()) {
+                Debug.Log($"Has axe! Requesting haul goal!");
+                this.provider.RequestGoal< IdleGoal, HaulItemGoal<Axe>>();
+            }
+            else {
+                this.provider.RequestGoal<CraftItemGoal<Axe>, IdleGoal>(); 
+            }
 
-            this.provider.RequestGoal<CraftItemGoal<Axe>, IdleGoal, HaulItemGoal<Axe>>();
+
+            
         }
     }
 }

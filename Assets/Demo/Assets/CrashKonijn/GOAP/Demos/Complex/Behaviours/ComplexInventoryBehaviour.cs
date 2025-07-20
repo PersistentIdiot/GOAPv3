@@ -8,6 +8,8 @@ namespace CrashKonijn.Goap.Demos.Complex.Behaviours {
     public class ComplexInventoryBehaviour : MonoBehaviour {
         private List<IHoldable> items = new();
 
+        public List<IHoldable> GetItems => new List<IHoldable>(items);
+
         public void Add<T>(T item) where T : IHoldable {
             item.Pickup(this.gameObject);
 

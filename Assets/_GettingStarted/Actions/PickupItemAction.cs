@@ -88,9 +88,6 @@ namespace _GettingStarted.Actions {
                     if (!equipable.TryEquip(data.AgentData)) {
                         Debug.Log($"{data.AgentData.gameObject} failed to equip {item.gameObject.name}");
                     }
-                    else {
-                        Debug.Log($"{data.AgentData.gameObject} equipped {item.gameObject.name}");
-                    }
                 }
                 else {
                     item.gameObject.SetActive(false);

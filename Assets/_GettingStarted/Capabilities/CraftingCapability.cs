@@ -1,4 +1,5 @@
 ﻿using _GettingStarted.Actions;
+using CrashKonijn.Agent.Runtime;
 using CrashKonijn.Docs.GettingStarted.Behaviours;
 using CrashKonijn.Docs.GettingStarted.Sensors;
 using CrashKonijn.Goap.Core;
@@ -34,7 +35,7 @@ namespace CrashKonijn.Docs.GettingStarted.Capabilities {
                 .SetKey<IsHolding<Axe>>();
 
             builder.AddMultiSensor<ChestSensor>();
-            
+            builder.AddMultiSensor<AnvilSensor>();
             return builder;
         }
         
@@ -70,7 +71,7 @@ namespace CrashKonijn.Docs.GettingStarted.Capabilities {
                 .AddEffect<IsHolding<Log>>(EffectType.Increase)
                 .SetTarget<ClosestHoldable<Log>>();
             
-            builder.AddAction<PickupItemAction<Log>>()
+            builder.AddAction<PickupItemAction<Stone>>()
                 .AddCondition<IsHolding<Stone>>(Comparison.SmallerThanOrEqual, 3)
                 .AddEffect<IsHolding<Stone>>(EffectType.Increase)
                 .SetTarget<ClosestHoldable<Stone>>();
@@ -81,7 +82,14 @@ namespace CrashKonijn.Docs.GettingStarted.Capabilities {
                 .AddEffect<IsHolding<Axe>>(EffectType.Increase)
                 .AddEffect<IsHolding<Log>>(EffectType.Decrease)
                 .AddEffect<IsHolding<Stone>>(EffectType.Decrease)
-                .SetRequiresTarget(false);
+                .SetProperties(new CreateItemAction<Axe>.Props() {
+                    craftingTime = 15,
+                    requiredStone = 3,
+                    requiredWood = 3
+                })
+                //.SetRequiresTarget(false)
+                .SetTarget<ClosestAnvil>()
+                ;
 
             
             builder.AddAction<HaulItemAction<Axe>>()

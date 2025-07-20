@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60cfc8d3abbb89545a156b421a79d41b, type: 3}
+  m_Name: Scenes
+  m_EditorClassIdentifier: 
+  _parentID:
+    _serializedGuid: 2535939fe029d540a3f6b9e7a9fafafa
+  _subcollectionIDs: []
+  _collectionName: Scenes
+  _id:
+    _serializedGuid: 2f878b3ead0d0347aaf85548797a4f98
+  _icon: {fileID: 0}
+  _rules:
+    _rules: []
+  _items:
+    _hashSetList:
+    - 835b868f51104864986c6a16f65fe481
+    - 3e9031a958dc3b64d88aae6286257ef5
+  _itemDisplaySize: 100
+  _viewStyle: 0
+  _useCollectionViewSettings: 0
+  references:
+    version: 2
+    RefIds: []

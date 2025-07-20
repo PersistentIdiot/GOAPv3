@@ -33,3 +33,6 @@ MonoBehaviour:
   PickupFromGroundEnd:
     Clip: {fileID: 3094330708855449807, guid: eae98f581b75a8545887fdd04c7fc591, type: 3}
     Priority: 2
+  Craft:
+    Clip: {fileID: 3094330708855449807, guid: 6a9186be312ef9b4993d9697f2e9f24c, type: 3}
+    Priority: 3
