@@ -9,7 +9,9 @@ using UnityEngine;
 namespace _GettingStarted.Actions {
     public class CreateItemAction<TItem> : GoapActionBase<CreateItemAction<TItem>.Data> where TItem : ItemBase {
         public override IActionRunState Perform(IMonoAgent agent, Data data, IActionContext context) {
-            return ActionRunState.WaitThenComplete(2.5f);
+            var animationData = data.AgentData.Animations.Craft;
+            data.AgentData.Animazing.Play(animationData.Clip, animationData.Priority);
+            return ActionRunState.WaitThenComplete(3f);
         }
 
         public override void Complete(IMonoAgent agent, Data data) {
@@ -21,17 +23,9 @@ namespace _GettingStarted.Actions {
             var axe = GameObject.Instantiate(axePrefab);
             axe.transform.position = agent.transform.position + randomOffset;
             axe.Drop(false);
-            
-            // Remove reagents
-            foreach (ItemBase reagent in axe.Reagents) {
-                if (!data.AgentData.Inventory.TryRemoveItem(reagent)) {
-                    Debug.Log($"Agent doesn't have any {reagent.gameObject.name}");
-                }
-            }
         }
 
         public class Data : IActionData {
-            public TItem Item;
             // When using the GetComponent attribute, the system will automatically inject the reference
             [GetComponent]
             public AgentData AgentData { get; set; }

@@ -11,6 +11,7 @@ namespace CrashKonijn.Docs.GettingStarted.Behaviours {
         public AnimationData PickupFromGroundStart;
         public AnimationData PickupFromGroundLoop;
         public AnimationData PickupFromGroundEnd;
+        public AnimationData Craft;
     }
 
     [Serializable]
